@@ -61,7 +61,7 @@ console.log(gamesPlayed);
 
 // How many games did I win?
 const gamesWon = data2.reduce(
-    (acc, x) => 0
+    (acc, x) => x.myTurns.includes('win') ? acc + 1 : acc
     , 0
 );
 console.log(gamesWon);
