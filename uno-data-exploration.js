@@ -83,3 +83,21 @@ const turnsByGame = data2.reduce(
     , []
 );
 console.log(turnsByGame);
+
+// How about grouping by play action, e.g. play card, draw card...
+//
+// First map to just an array of all my turn actions for all games...
+
+
+const actionsByType = data2
+    .flatMap(x => [...x.myTurns])
+    .reduce(
+        (acc, x) => acc.set(
+            x
+            , acc.has(x) ? acc.get(x) + 1 : 1
+        )
+        , new Map()
+    )
+;
+
+console.log(actionsByType);
