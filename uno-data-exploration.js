@@ -100,4 +100,4 @@ const actionsByType = data2
     )
 ;
 
-console.log(actionsByType);
+console.log([...actionsByType]);
