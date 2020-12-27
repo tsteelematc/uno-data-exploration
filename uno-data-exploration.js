@@ -50,7 +50,7 @@ const data2 = [     // Array of games
             , 'uno'         // Got to uno, but didn't win, had more turns, and somebody else won since my last turn IS NOT 'win'
             , 'play card'
             , 'play card'
-            , 'loss'        // Hmm, probably need some UI to end the game, so can easily include this, hmm, but is it a turn ? ? ?
+            //, 'loss'        // Hmm, probably need some UI to end the game, so can easily include this, hmm, but is it a turn ? ? ?
         ]
     }
 ];
@@ -58,21 +58,28 @@ const data2 = [     // Array of games
 
 // How many games have I played?
 const gamesPlayed = data2.length;
-console.log(gamesPlayed);
+console.log(`${gamesPlayed} games played`);
 
 // How many games did I win?
 const gamesWon = data2.reduce(
     (acc, x) => x.myTurns.includes('win') ? acc + 1 : acc
     , 0
 );
-console.log(gamesWon);
+console.log(`${gamesWon} games won`);
 
 // How many games did I lose?
 const gamesLost = gamesPlayed - gamesWon;
-console.log(gamesLost);
+console.log(`${gamesLost} games lost`);
 
 const gamesLost2 = data2.reduce(
-    (acc, x) => x.myTurns.includes('loss') ? acc + 1 : acc
+    (acc, x) => !x.myTurns.includes('win') ? acc + 1 : acc
     , 0
 );
-console.log(gamesLost2);
+console.log(`${gamesLost2} games lost`);
+
+// Can I get an arry of number of turns for each game...
+const turnsByGame = data2.reduce(
+    (acc, x) => [...acc, x.myTurns.length] 
+    , []
+);
+console.log(turnsByGame);
