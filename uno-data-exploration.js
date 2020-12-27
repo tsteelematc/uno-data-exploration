@@ -50,6 +50,7 @@ const data2 = [     // Array of games
             , 'uno'         // Got to uno, but didn't win, had more turns, and somebody else won since my last turn IS NOT 'win'
             , 'play card'
             , 'play card'
+            , 'loss'        // Hmm, probably need some UI to end the game, so can easily include this, hmm, but is it a turn ? ? ?
         ]
     }
 ];
@@ -66,3 +67,12 @@ const gamesWon = data2.reduce(
 );
 console.log(gamesWon);
 
+// How many games did I lose?
+const gamesLost = gamesPlayed - gamesWon;
+console.log(gamesLost);
+
+const gamesLost2 = data2.reduce(
+    (acc, x) => x.myTurns.includes('loss') ? acc + 1 : acc
+    , 0
+);
+console.log(gamesLost2);
