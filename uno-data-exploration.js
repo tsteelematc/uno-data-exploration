@@ -100,6 +100,10 @@ const actionsByType = data2
     )
 ;
 
+// The Map...
+console.log(actionsByType);
+
+// A Map spread into an array...
 console.log([...actionsByType]);
 
 // Would probably spread and map to object literal for binding ! ! !
