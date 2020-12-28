@@ -101,3 +101,11 @@ const actionsByType = data2
 ;
 
 console.log([...actionsByType]);
+
+// Would probably spread and map to object literal for binding ! ! !
+console.log(
+    [...actionsByType].map(x => ({
+      action: x[0]
+      , count: x[1]  
+    }))
+);
